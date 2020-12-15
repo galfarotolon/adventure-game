@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Text-Adventure</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>   
+    </head>
+    <body>
+
+    <div class='main-content'>
+        <h2>MYSTIC KINGDOM</h2>
+        <p>Hello Adventurer! This game is for those who wish to find a way to leave their world behind. 
+        
+        You will be presented with options along your perilous journey. Choose Wisely. Try to Complete your quest before your lives reach 0. Good Luck.
+        Click Play to continue!</p>
+        <button class='play-btn' src='sounds/intro.mp3'>Play Game</button>
+
+        <div id='game'>
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <script type="text/javascript">
+    let type = "WebGL"
+    if(!PIXI.utils.isWebGLSupported()){
+      type = "canvas"
+    }
+
+    PIXI.utils.sayHello(type)
+  </script>
+  
+        <script src="main.js" ></script>
+
+    </body>
+</html>

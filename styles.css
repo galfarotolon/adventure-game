@@ -1,0 +1,77 @@
+*{
+    box-sizing: border-box;
+ 
+}
+
+html{
+    background-color: black;
+}
+
+
+@font-face {
+    font-family: 'VT323-Regular';
+    src: url('VT323-Regular.ttf'); /* IE9 Compat Modes */
+    src: url('VT323-Regular.ttf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('VT323-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('VT323-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+         url('VT323-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('VT323-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+  }
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'VT323-Regular';
+    color: white;
+    margin-bottom: 5%;
+    
+
+}
+
+
+
+h2{
+    font-size: 100px;
+    letter-spacing: 2;
+  
+}
+
+
+
+p{
+    font-size: 50px;
+}
+
+
+/* Main Content */
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.main-content p{
+    margin: 0 5%;
+}
+
+/* Buttons */
+
+.play-btn{
+    padding: 1%;
+    margin: 3%;
+    width: 10%;
+    border-radius: 10px;
+    font-family:'VT323-Regular' ;
+    font-size: 30px;
+    background-color: white;
+
+}
+
+.play-btn:hover{
+    cursor: pointer;
+    background-color: rgb(29, 112, 29);
+    color: white;
+}
