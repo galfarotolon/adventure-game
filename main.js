@@ -12,7 +12,7 @@ let bgSpeed = 1
 
 
 
-document.querySelector('#game').appendChild(app.view);
+
 
 // let background = new PIXI.Sprite.from('images/img-1.png')
 // let palmTree = new PIXI.Sprite.from('images/palmtree-1.png')
@@ -29,11 +29,33 @@ document.querySelector('#game').appendChild(app.view);
 // app.stage.addChild(text);
 
 
+let count = 0
 var audio = new Audio("/sounds/intro.mp3");
+
+//Button functionality outside Pixi
 
 document.querySelector('.play-btn').onclick = function playGame() {
     audio.play();
     audio.loop = true;
+
+    if (count === 0) {
+        document.querySelector('#game').appendChild(app.view);
+        app.ticker.add(gameLoop)
+        count++;
+    }
+
+
+}
+
+
+document.querySelector('.pause-btn').onclick = function plauseGame() {
+    audio.pause();
+    count--;
+    app.ticker.remove(gameLoop)
+
+
+
+
 }
 
 
@@ -49,7 +71,7 @@ const initLevel = () => {
     // bgTree = createBg(app.loader.resources['bgTree'].texture)
 
 
-    app.ticker.add(gameLoop)
+    // app.ticker.add(gameLoop)
 }
 
 

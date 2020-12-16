@@ -59,10 +59,18 @@ p{
 
 /* Buttons */
 
-.play-btn{
+.options{
+    display: flex;
+
+}
+
+.btn{
+
+
+    cursor: pointer;
     padding: 1%;
     margin: 3%;
-    width: 10%;
+    width: 50vh;
     border-radius: 10px;
     font-family:'VT323-Regular' ;
     font-size: 30px;
@@ -70,8 +78,18 @@ p{
 
 }
 
+.play-btn{
+ 
+
+}
+
 .play-btn:hover{
-    cursor: pointer;
+   
     background-color: rgb(29, 112, 29);
+    color: white;
+}
+
+.pause-btn:hover{
+    background-color: rgb(194, 4, 4);
     color: white;
 }
