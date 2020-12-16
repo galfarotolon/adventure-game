@@ -12,8 +12,6 @@ html{
     font-family: 'VT323-Regular';
     src: url('VT323-Regular.ttf'); /* IE9 Compat Modes */
     src: url('VT323-Regular.ttf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('VT323-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('VT323-Regular.woff') format('woff'), /* Pretty Modern Browsers */
          url('VT323-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
          url('VT323-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
   }
@@ -40,6 +38,16 @@ h2{
 
 p{
     font-size: 50px;
+}
+
+footer{
+    width: 100%;
+    text-align: center;
+    margin-top: 3%;
+}
+
+footer p{
+    font-size: 20px;
 }
 
 
@@ -70,7 +78,7 @@ p{
     cursor: pointer;
     padding: 1%;
     margin: 3%;
-    width: 50vh;
+    width: 40vh;
     border-radius: 10px;
     font-family:'VT323-Regular' ;
     font-size: 30px;
@@ -90,6 +98,16 @@ p{
 }
 
 .pause-btn:hover{
+    background-color: rgb(221, 178, 35);
+    color: white;
+}
+
+.restart-btn:hover{
     background-color: rgb(194, 4, 4);
+    color: white;
+}
+
+.inventory-btn:hover{
+    background-color: rgb(4, 109, 194);
     color: white;
 }

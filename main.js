@@ -17,11 +17,14 @@ let bgSpeed = 1
 // let background = new PIXI.Sprite.from('images/img-1.png')
 // let palmTree = new PIXI.Sprite.from('images/palmtree-1.png')
 // var text = new PIXI.Text("Hello Adventurer!", { fill: "red" });
+// var text = new PIXI.Text("You have travelled far", { fill: "white", fontFamily: 'VT323-Regular' });
 
 
 // text.anchor.set(0.5);
 // text.x = app.view.width / 2
 // text.y = app.view.height / 2
+
+
 
 
 // app.stage.addChild(background)
@@ -41,6 +44,12 @@ document.querySelector('.play-btn').onclick = function playGame() {
     if (count === 0) {
         document.querySelector('#game').appendChild(app.view);
         app.ticker.add(gameLoop)
+
+        loadAssets()
+        // setTimeout(loadText, 5000)
+
+
+
         count++;
     }
 
@@ -48,16 +57,41 @@ document.querySelector('.play-btn').onclick = function playGame() {
 }
 
 
-document.querySelector('.pause-btn').onclick = function plauseGame() {
+document.querySelector('.pause-btn').onclick = function pauseGame() {
     audio.pause();
-    count--;
+    count = 0;
     app.ticker.remove(gameLoop)
+
+}
+
+document.querySelector('.restart-btn').onclick = function restartGame() {
+    audio.currentTime = 0
+    audio.play()
+    audio.loop = true;
+    count = 0;
+    bgX = 0
+
+
+    //app.loader.destroy('bgTree', 'tree_face.png')
+
+    document.querySelector('.game-text').innerHTML = ''
+
+
+
+    myStopFunction()
+    loadAssets()
+
+
+    count++;
+
+    console.log(count);
+
+    console.log('restarting');
 
 
 
 
 }
-
 
 
 const initLevel = () => {
@@ -68,7 +102,7 @@ const initLevel = () => {
     bgRoad = createBg(app.loader.resources['bgRoad'].texture)
     bgLianas = createBg(app.loader.resources['bgLianas'].texture)
     bgFireFly = createBg(app.loader.resources['bgFireFly'].texture)
-    // bgTree = createBg(app.loader.resources['bgTree'].texture)
+    bgTree = createBg(app.loader.resources['bgTree'].texture)
 
 
     // app.ticker.add(gameLoop)
@@ -84,7 +118,31 @@ app.loader.add('bgGrass', 'grasses.png');
 app.loader.add('bgRoad', 'grass&road.png');
 app.loader.add('bgLianas', 'lianas.png');
 app.loader.add('bgFireFly', 'fireflys.png');
-// app.loader.add('bgTree', 'tree_face.png');
+
+
+let myVar;
+let myVar2;
+
+
+function loadAssets() {
+
+    powerTree = setTimeout(function () {
+
+        app.loader.add('bgTree', 'tree_face.png')
+    }, 5000);
+
+    text = setTimeout(function () {
+        document.querySelector('.game-text').innerHTML = 'You have travelled Far...'
+    }, 5000)
+
+}
+
+function myStopFunction() {
+    clearTimeout(powerTree);
+    clearTimeout(text);
+}
+
+
 
 
 app.loader.onComplete.add(initLevel)
@@ -99,7 +157,7 @@ function gameLoop(delta) {
 }
 
 function createBg(texture) {
-    let tiling = new PIXI.TilingSprite(texture, 1200, 600);
+    let tiling = new PIXI.TilingSprite(texture, 1000, 600);
     tiling.position.set(0, 0);
     app.stage.addChild(tiling);
 
@@ -108,13 +166,12 @@ function createBg(texture) {
 
 function updateBg() {
     bgX = (bgX + bgSpeed);
-    bgFireFly.tilePosition.x = bgX / 10
-
-    // bgLianas.tilePosition.x = bgX / 2
-    // bgBushes.tilePosition.x = bgX / 4;
-    // bgJungle.tilePosition.x = bgX / 6;
-    // bgSky.tilePosition.x = bgX / 10;
-
-
-
+    bgFireFly.tilePosition.x = bgX / 4
+    bgLianas.tilePosition.x = bgX / 6
+    bgGrass.tilePosition.x = bgX / 4
+    bgRoad.tilePosition.x = bgX / 4
+    bgBushes.tilePosition.x = bgX / 4;
+    bgJungle.tilePosition.x = bgX / 6;
+    bgSky.tilePosition.x = bgX
 }
+
