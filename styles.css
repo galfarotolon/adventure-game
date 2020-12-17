@@ -7,7 +7,7 @@ html{
     background-color: black;
 }
 
-
+/* pixel style font */
 @font-face {
     font-family: 'VT323-Regular';
     src: url('VT323-Regular.ttf'); /* IE9 Compat Modes */
