@@ -93,7 +93,7 @@ document.querySelector('.restart-btn').onclick = function restartGame() {
 
 }
 
-
+// init level
 const initLevel = () => {
     bgSky = createBg(app.loader.resources['bgSky'].texture)
     bgJungle = createBg(app.loader.resources['bgJungle'].texture)
