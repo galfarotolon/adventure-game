@@ -12,7 +12,7 @@ let bgSpeed = 1
 
 
 
-
+//maybe this works:
 
 // let background = new PIXI.Sprite.from('images/img-1.png')
 // let palmTree = new PIXI.Sprite.from('images/palmtree-1.png')
