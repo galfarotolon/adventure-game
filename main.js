@@ -10,7 +10,9 @@ let bgX = 0;
 let bgSpeed = 1
 
 
-
+const tree = PIXI.Sprite.from("assets/tree_face.png");
+// tree.x = 100;
+// tree.y = 100;
 
 
 
@@ -70,27 +72,13 @@ document.querySelector('.restart-btn').onclick = function restartGame() {
     audio.loop = true;
     count = 0;
     bgX = 0
-
-
-    //app.loader.destroy('bgTree', 'tree_face.png')
-
+    app.stage.removeChild(tree);
     document.querySelector('.game-text').innerHTML = ''
-
-
-
     myStopFunction()
     loadAssets()
-
-
     count++;
-
     console.log(count);
-
     console.log('restarting');
-
-
-
-
 }
 
 // init level
@@ -102,7 +90,7 @@ const initLevel = () => {
     bgRoad = createBg(app.loader.resources['bgRoad'].texture)
     bgLianas = createBg(app.loader.resources['bgLianas'].texture)
     bgFireFly = createBg(app.loader.resources['bgFireFly'].texture)
-    bgTree = createBg(app.loader.resources['bgTree'].texture)
+    // bgTree = createBg(app.loader.resources['bgTree'].texture)
 
 
     // app.ticker.add(gameLoop)
@@ -128,12 +116,30 @@ function loadAssets() {
 
     powerTree = setTimeout(function () {
 
-        app.loader.add('bgTree', 'tree_face.png')
+        app.stage.addChild(tree);
     }, 5000);
 
     text = setTimeout(function () {
         document.querySelector('.game-text').innerHTML = 'You have travelled Far...'
     }, 5000)
+
+
+    text = setTimeout(function () {
+        document.querySelector('.game-text').innerHTML = 'You stumble upon what seems to be a talking tree...'
+    }, 8000)
+
+
+    text = setTimeout(function () {
+        document.querySelector('.game-text').innerHTML = "Power Tree: 'Halt! Who dares awaken me from my deep slumber?' "
+
+        const optionsShow = document.querySelector('.game-options');
+        optionsShow.style.display = 'inline-block';
+
+        const option1 = document.querySelector('.option1-btn').innerHTML = "'Tis I, the great adventurer'"
+        const option2 = document.querySelector('.option2-btn').innerHTML = "'I meant not to wake you, apologies oh great talking tree'"
+        const option3 = document.querySelector('.option3-btn').innerHTML = "'A talking tree? I must be dreaming'"
+        const option4 = document.querySelector('.option4-btn').innerHTML = "'I am lost and looking for a path out of the forest'"
+    }, 12000)
 
 }
 
